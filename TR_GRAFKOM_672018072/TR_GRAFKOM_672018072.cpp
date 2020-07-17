@@ -127,19 +127,19 @@ void renderScene(void) {
 
     glRotatef(xrot, 1.0f, 0.0f, 0.0f);
     glRotatef(yrot, 0.0f, 1.0f, 0.0f);
-
-    // Front
+    
     float d1[] = { 0.2, 0.5, 0.8, 1.0 };
     float d2[] = { 0.3, 0.5, 0.6, 1.0 };
     float d3[] = { 0.4, 0.2, 0.2, 1.0 };
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, d1);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, d2);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, d3);
 
+    // Front
     glColor3f(1.0f, 0.0f, 0.0f);     // Red
     glBegin(GL_TRIANGLES);
-    glMaterialfv(GL_FRONT, GL_DIFFUSE, d1);
     glVertex3f(0.0f, 1.0f, 0.0f);
-    glMaterialfv(GL_FRONT, GL_DIFFUSE, d2);
     glVertex3f(-1.0f, -1.0f, 1.0f);
-    glMaterialfv(GL_FRONT, GL_DIFFUSE, d3);
     glVertex3f(1.0f, -1.0f, 1.0f);
     glEnd();
 
