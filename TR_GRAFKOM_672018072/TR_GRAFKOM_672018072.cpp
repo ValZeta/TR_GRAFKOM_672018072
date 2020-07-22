@@ -18,6 +18,7 @@ GLuint _textureID;
 GLuint _textureID1;
 GLuint _textureID2;
 GLuint _textureID3;
+GLuint _textureID4;
 
 void banyu() {
     glEnable(GL_TEXTURE_2D);
@@ -128,18 +129,30 @@ void geladak() {
     glEnd();
     glDisable(GL_TEXTURE_2D);
     //atas
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID4);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glBegin(GL_QUADS);
     glColor3f(0.9f, 0.9f, 0.9f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(-40.0f, 5.0f, 12.0f);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(40.0f, 5.0f, 12.0f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(40.0f, 5.0f, -12.0f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(-40.0f, 5.0f, -12.0f);
     glEnd();
     glBegin(GL_TRIANGLES);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(40.0f, 5.0f, 12.0f);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(40.0f, 5.0f, -12.0f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(60.0f, 5.0f, 0.0f);
     glEnd();
+    glDisable(GL_TEXTURE_2D);
     //bawah
     glBegin(GL_QUADS);
     glColor3f(0.9f, 0.9f, 0.9f);
@@ -256,6 +269,7 @@ void init() {
     _textureID1 = loadBMP_custom("C:/Users/Valen/source/repos/TR_GRAFKOM_672018072/TR_GRAFKOM_672018072/texture1.bmp");
     _textureID2 = loadBMP_custom("C:/Users/Valen/source/repos/TR_GRAFKOM_672018072/TR_GRAFKOM_672018072/texture2.bmp");
     _textureID3 = loadBMP_custom("C:/Users/Valen/source/repos/TR_GRAFKOM_672018072/TR_GRAFKOM_672018072/texture3.bmp");
+    _textureID4 = loadBMP_custom("C:/Users/Valen/source/repos/TR_GRAFKOM_672018072/TR_GRAFKOM_672018072/texture4.bmp");
     glClearDepth(1.0f);
     glClearDepth(1.0f);
     glEnable(GL_COLOR_MATERIAL);
