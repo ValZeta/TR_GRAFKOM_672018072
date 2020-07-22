@@ -6,6 +6,6 @@
 #### Yosua Wawan Andika Putra (672018224)
 ![alt text](https://www.ncl.com/sites/default/files/joy-ship-mobile-2018.jpg)
 
-Tugas Rancang kali ini menggunakan OpenGL dan bahasa pemrogramman C++
-Disertakan pula library freeglut dan memakai Visual Studio 2019 sebagai IDE
-Didalam Repo ini, terdapat file utama, yaitu ".cpp" dan headernya yang berekstensi ".h" untuk loading texture
+Tugas Rancang kali ini menggunakan OpenGL dan bahasa pemrogramman C++.
+Disertakan pula library freeglut dan memakai Visual Studio 2019 sebagai IDE.
+Didalam Repo ini, terdapat file utama, yaitu ".cpp" dan headernya yang berekstensi ".h" untuk loading texture.
