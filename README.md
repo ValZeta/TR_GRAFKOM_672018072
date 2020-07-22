@@ -9,3 +9,4 @@
 Tugas Rancang kali ini menggunakan OpenGL dan bahasa pemrogramman C++.
 Disertakan pula library freeglut dan memakai Visual Studio 2019 sebagai IDE.
 Didalam Repo ini, terdapat file utama, yaitu ".cpp" dan headernya yang berekstensi ".h" untuk loading texture.
+Terdapat fungsi keyboard dan mouse untuk menggerakkan objek, fungsi lighting, dan texturing pada file ".cpp".
