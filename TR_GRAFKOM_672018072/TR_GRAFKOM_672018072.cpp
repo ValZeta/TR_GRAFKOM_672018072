@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <GL/glut.h>
 #include <iostream>
+#include "LoadImageBMP.h"
 
 int w = 1024, h = 1024;
 static float ypoz = 0, zpoz = 0, xpoz = 0, a = 0, b = 0, c = -10;
@@ -13,47 +14,119 @@ float ydiff = 0.0f;
 bool mouseDown = false;
 int is_depth;
 
+GLuint _textureID;
+GLuint _textureID1;
+GLuint _textureID2;
+GLuint _textureID3;
+
+void banyu() {
+    glEnable(GL_TEXTURE_2D);
+
+    glBindTexture(GL_TEXTURE_2D, _textureID);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    glBegin(GL_QUADS);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-70.0f, -5.0f, 60.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-70.0f, -5.0f, -60.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(90.0f, -5.0f, -60.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(90.0f, -5.0f, 60.0f);
+    glEnd();
+
+    glDisable(GL_TEXTURE_2D);
+}
+
 void geladak() {
     //kanan_belakang
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID1);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glBegin(GL_QUADS);
     glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(-45.0f, -5.0f, 12.0f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(-40.0f, 5.0f, 12.0f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(40.0f, 5.0f, 12.0f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(20.0f, -5.0f, 12.0f);
     glEnd();
+    glDisable(GL_TEXTURE_2D);
     //kiri_belakang
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID1);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glBegin(GL_QUADS);
     glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(-45.0f, -5.0f, -12.0f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(-40.0f, 5.0f, -12.0f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(40.0f, 5.0f, -12.0f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(20.0f, -5.0f, -12.0f);
     glEnd();
+    glDisable(GL_TEXTURE_2D);
     //belakang
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID3);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glBegin(GL_QUADS);
     glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(-45.0f, -5.0f, 12.0f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(-40.0f, 5.0f, 12.0f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(-40.0f, 5.0f, -12.0f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(-45.0f, -5.0f, -12.0f);
     glEnd();
+    glDisable(GL_TEXTURE_2D);
     //kanan_depan
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID2);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glBegin(GL_QUADS);
     glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(40.0f, 5.0f, 12.0f);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(20.0f, -5.0f, 12.0f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(50.0f, -5.0f, 0.0f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(60.0f, 5.0f, 0.0f);
     glEnd();
+    glDisable(GL_TEXTURE_2D);
     //kiri_depan
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID2);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glBegin(GL_QUADS);
     glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(40.0f, 5.0f, -12.0f);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(20.0f, -5.0f, -12.0f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(50.0f, -5.0f, 0.0f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(60.0f, 5.0f, 0.0f);
     glEnd();
+    glDisable(GL_TEXTURE_2D);
     //atas
     glBegin(GL_QUADS);
     glColor3f(0.9f, 0.9f, 0.9f);
@@ -179,6 +252,11 @@ void init() {
 
     glShadeModel(GL_SMOOTH);
     glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
+    _textureID = loadBMP_custom("C:/Users/Valen/source/repos/TR_GRAFKOM_672018072/TR_GRAFKOM_672018072/texture.bmp");
+    _textureID1 = loadBMP_custom("C:/Users/Valen/source/repos/TR_GRAFKOM_672018072/TR_GRAFKOM_672018072/texture1.bmp");
+    _textureID2 = loadBMP_custom("C:/Users/Valen/source/repos/TR_GRAFKOM_672018072/TR_GRAFKOM_672018072/texture2.bmp");
+    _textureID3 = loadBMP_custom("C:/Users/Valen/source/repos/TR_GRAFKOM_672018072/TR_GRAFKOM_672018072/texture3.bmp");
+    glClearDepth(1.0f);
     glClearDepth(1.0f);
     glEnable(GL_COLOR_MATERIAL);
     glEnable(GL_DEPTH_TEST);
@@ -222,6 +300,7 @@ void renderScene(void) {
     glMaterialfv(GL_FRONT, GL_DIFFUSE, d2);
     glMaterialfv(GL_FRONT, GL_DIFFUSE, d3);
 
+    banyu();
     geladak();
 
     glutSwapBuffers();
