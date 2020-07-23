@@ -14,6 +14,11 @@ float ydiff = 0.0f;
 bool mouseDown = false;
 int is_depth;
 
+bool toUp = true;
+float y_pos = -5.0f;
+float deltay = 0.012f;
+bool anim = true;
+
 GLuint _textureID;
 GLuint _textureID1;
 GLuint _textureID2;
@@ -22,6 +27,29 @@ GLuint _textureID4;
 GLuint _textureID5;
 
 GLUquadric* qobj;
+
+void banyu() {
+    glEnable(GL_TEXTURE_2D);
+
+    glBindTexture(GL_TEXTURE_2D, _textureID);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    glBegin(GL_QUADS);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-500.0f, y_pos, 500.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-500.0f, y_pos, -500.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(500.0f, y_pos, -500.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(500.0f, y_pos, 500.0f);
+    glEnd();
+
+    glDisable(GL_TEXTURE_2D);
+    //glutSwapBuffers();
+}
 
 void kapal_kecil() {
     //kanan
@@ -915,28 +943,6 @@ void pagar() {
     glEnd();
 }
 
-void banyu() {
-    glEnable(GL_TEXTURE_2D);
-
-    glBindTexture(GL_TEXTURE_2D, _textureID);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-    glBegin(GL_QUADS);
-    glColor3f(1.0f, 1.0f, 1.0f);
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-70.0f, -5.0f, 60.0f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-70.0f, -5.0f, -60.0f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(90.0f, -5.0f, -60.0f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(90.0f, -5.0f, 60.0f);
-    glEnd();
-
-    glDisable(GL_TEXTURE_2D);
-}
-
 void geladak() {
     //kanan_belakang
     glEnable(GL_TEXTURE_2D);
@@ -1241,7 +1247,21 @@ void resize(int w1, int h1) {
 
 void timer(int value) {
     glutPostRedisplay();
-    glutTimerFunc(50, timer, 0);
+    glutTimerFunc(1000 / 60, timer, 0);
+    if (anim) {
+        if (y_pos < -4.57f && toUp) {
+            y_pos += deltay;
+        }
+        else {
+            toUp = false;
+        }
+        if (y_pos > -5.0f && !toUp) {
+            y_pos -= deltay;
+        }
+        else {
+            toUp = true;
+        }
+    }
 }
 
 int main(int argc, char** argv) {
@@ -1258,6 +1278,7 @@ int main(int argc, char** argv) {
     glutMouseFunc(mouse);
     glutMotionFunc(mouseMotion);
     glutIdleFunc(renderScene);
+    glutSwapBuffers();
     glutTimerFunc(1, timer, 0);
 
     init();
