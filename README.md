@@ -1,4 +1,4 @@
-# _TR_GRAFKOM_672018072_
+# TR GRAFIKA KOMPUTER KELAS H, FTI UKSW, ANGKATAN 2018
 ## Model 3D Kapal "Norwegian Joy"
 
 #### Valen Brata Pranaya (672018072)
