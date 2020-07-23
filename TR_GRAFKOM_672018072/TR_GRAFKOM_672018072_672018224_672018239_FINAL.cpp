@@ -1193,8 +1193,6 @@ void renderScene(void) {
     glClearColor(0, 0, 0, 1);
 
     glLoadIdentity();
-
-
     gluLookAt(0.0, 0.0, 100.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 
     glTranslatef(a, b, c);
@@ -1204,7 +1202,6 @@ void renderScene(void) {
     glRotatef(zpoz, 0, 0, 1);
 
     glScalef(xScale, yScale, zScale);
-
 
     glRotatef(xrot, 1.0f, 0.0f, 0.0f);
     glRotatef(yrot, 0.0f, 1.0f, 0.0f);
@@ -1227,7 +1224,6 @@ void renderScene(void) {
     pagar();
     kursi_kanan();
     kursi_kiri();
-
     kapal_kecil();
     bulan();
     cerobong();
