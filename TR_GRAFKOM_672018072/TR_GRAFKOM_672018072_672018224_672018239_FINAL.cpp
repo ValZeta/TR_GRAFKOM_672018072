@@ -15,7 +15,7 @@ bool mouseDown = false;
 int is_depth;
 
 bool toUp = true;
-float y_pos = -5.0f;
+float y_pos = -4.9f;
 float deltay = 0.012f;
 bool anim = true;
 
@@ -25,16 +25,190 @@ GLuint _textureID2;
 GLuint _textureID3;
 GLuint _textureID4;
 GLuint _textureID5;
+GLuint _textureID6;
+GLuint _textureID7;
+GLuint _textureID8;
 
 GLUquadric* qobj;
 
+void pulau() {
+    //atas
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID6);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glBegin(GL_QUADS);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-50.0f, 3.0f, -50.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-50.0f, 3.0f, -100.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(50.0f, 3.0f, -100.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(50.0f, 3.0f, -50.0f);
+    glEnd();
+    glDisable(GL_TEXTURE_2D);
+    //depan
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID6);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glBegin(GL_QUADS);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-50.0f, 3.0f, -50.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(50.0f, 3.0f, -50.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(75.0f, -5.0f, -40.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-75.0f, -5.0f, -40.0f);
+    glEnd();
+    glDisable(GL_TEXTURE_2D);
+    //belakang
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID6);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glBegin(GL_QUADS);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-50.0f, 3.0f, -100.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(50.0f, 3.0f, -100.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(75.0f, -5.0f, -110.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-75.0f, -5.0f, -110.0f);
+    glEnd();
+    glDisable(GL_TEXTURE_2D);
+    //kiri
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID6);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glBegin(GL_QUADS);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-50.0f, 3.0f, -50.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-75.0f, -5.0f, -40.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-75.0f, -5.0f, -110.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-50.0f, 3.0f, -100.0f);
+    glEnd();
+    glDisable(GL_TEXTURE_2D);
+    //kanan
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID6);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glBegin(GL_QUADS);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(50.0f, 3.0f, -50.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(75.0f, -5.0f, -40.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(75.0f, -5.0f, -110.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(50.0f, 3.0f, -100.0f);
+    glEnd();
+    glDisable(GL_TEXTURE_2D);
+    //bawah
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID6);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glBegin(GL_QUADS);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-75.0f, -5.0f, -40.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-75.0f, -5.0f, -110.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(75.0f, -5.0f, -110.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(75.0f, -5.0f, -40.0f);
+    glEnd();
+    glDisable(GL_TEXTURE_2D);
+    //pohon
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID7);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glBegin(GL_QUADS);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(0.0f, 3.0f, -80.f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(1.0f, 3.0f, -80.f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(1.0f, 15.0f, -80.f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(0.0f, 15.0f, -80.f);
+    glEnd();
+    glDisable(GL_TEXTURE_2D);
+
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID7);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glBegin(GL_QUADS);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(1.0f, 3.0f, -82.f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(0.0f, 3.0f, -82.f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(0.0f, 15.0f, -82.f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(1.0f, 15.0f, -82.f);
+    glEnd();
+    glDisable(GL_TEXTURE_2D);
+
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID7);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glBegin(GL_QUADS);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(1.0f, 3.0f, -80.f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(1.0f, 3.0f, -82.f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(1.0f, 15.0f, -82.f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(1.0f, 15.0f, -80.f);
+    glEnd();
+    glDisable(GL_TEXTURE_2D);
+
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID7);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glBegin(GL_QUADS);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(0.0f, 3.0f, -80.f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(0.0f, 3.0f, -82.f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(0.0f, 15.0f, -82.f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(0.0f, 15.0f, -80.f);
+    glEnd();
+    glDisable(GL_TEXTURE_2D);
+}
+
 void banyu() {
     glEnable(GL_TEXTURE_2D);
-
     glBindTexture(GL_TEXTURE_2D, _textureID);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
     glBegin(GL_QUADS);
     glColor3f(1.0f, 1.0f, 1.0f);
     glTexCoord2f(0.0f, 0.0f);
@@ -46,60 +220,112 @@ void banyu() {
     glTexCoord2f(1.0f, 0.0f);
     glVertex3f(500.0f, y_pos, 500.0f);
     glEnd();
-
     glDisable(GL_TEXTURE_2D);
-    //glutSwapBuffers();
 }
 
 void kapal_kecil() {
     //kanan
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID8);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glColor3f(0.2f, 0.0f, 0.0f);
     glBegin(GL_QUADS);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(5.0f, -5.0f, 30.f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(-5.f, -5.f, 30.f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(-7.f, -2.f, 30.f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(7.f, -2.f, 30.f);
     glEnd();
+    glDisable(GL_TEXTURE_2D);
     //kiri
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID8);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glColor3f(0.2f, 0.0f, 0.0f);
     glBegin(GL_QUADS);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(5.0f, -5.0f, 25.f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(-5.f, -5.f, 25.f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(-7.f, -2.f, 25.f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(7.f, -2.f, 25.f);
     glEnd();
+    glDisable(GL_TEXTURE_2D);
     //bawah
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID8);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glColor3f(0.2f, 0.0f, 0.0f);
     glBegin(GL_QUADS);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(5.0f, -5.f, 30.f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(-5.f, -5.f, 30.f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(-5.f, -5.f, 25.f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(5.f, -5.f, 25.f);
     glEnd();
+    glDisable(GL_TEXTURE_2D);
     //depan
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID8);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glColor3f(0.2f, 0.0f, 0.0f);
     glBegin(GL_QUADS);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(5.0f, -5.0f, 30.f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(5.f, -5.f, 25.f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(7.f, -2.f, 25.f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(7.f, -2.f, 30.f);
     glEnd();
+    glDisable(GL_TEXTURE_2D);
     //belakang
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID8);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glColor3f(0.2f, 0.0f, 0.0f);
     glBegin(GL_QUADS);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(-5.0f, -5.0f, 30.f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(-5.f, -5.f, 25.f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(-7.f, -2.f, 25.f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(-7.f, -2.f, 30.f);
     glEnd();
+    glDisable(GL_TEXTURE_2D);
     //atas
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureID8);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glColor3f(0.2f, 0.0f, 0.0f);
     glBegin(GL_QUADS);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(7.0f, -2.0f, 30.f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(-7.f, -2.f, 30.f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(-7.f, -2.f, 25.f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(7.f, -2.f, 25.f);
     glEnd();
+    glDisable(GL_TEXTURE_2D);
     //tiang
     glPushMatrix();
     glEnable(GL_COLOR_MATERIAL);
@@ -1172,6 +1398,9 @@ void init() {
     _textureID3 = loadBMP_custom("C:/Users/Valen/source/repos/TR_GRAFKOM_672018072/TR_GRAFKOM_672018072/texture3.bmp");
     _textureID4 = loadBMP_custom("C:/Users/Valen/source/repos/TR_GRAFKOM_672018072/TR_GRAFKOM_672018072/texture4.bmp");
     _textureID5 = loadBMP_custom("C:/Users/Valen/source/repos/TR_GRAFKOM_672018072/TR_GRAFKOM_672018072/texture5.bmp");
+    _textureID6 = loadBMP_custom("C:/Users/Valen/source/repos/TR_GRAFKOM_672018072/TR_GRAFKOM_672018072/texture6.bmp");
+    _textureID7 = loadBMP_custom("C:/Users/Valen/source/repos/TR_GRAFKOM_672018072/TR_GRAFKOM_672018072/texture7.bmp");
+    _textureID8 = loadBMP_custom("C:/Users/Valen/source/repos/TR_GRAFKOM_672018072/TR_GRAFKOM_672018072/texture8.bmp");
     glClearDepth(1.0f);
     glClearDepth(1.0f);
     glEnable(GL_COLOR_MATERIAL);
@@ -1213,6 +1442,7 @@ void renderScene(void) {
     glMaterialfv(GL_FRONT, GL_DIFFUSE, d2);
     glMaterialfv(GL_FRONT, GL_DIFFUSE, d3);
 
+    pulau();
     banyu();
     geladak();
     atasan();
@@ -1245,13 +1475,13 @@ void timer(int value) {
     glutPostRedisplay();
     glutTimerFunc(1000 / 60, timer, 0);
     if (anim) {
-        if (y_pos < -4.57f && toUp) {
+        if (y_pos < -4.55f && toUp) {
             y_pos += deltay;
         }
         else {
             toUp = false;
         }
-        if (y_pos > -5.0f && !toUp) {
+        if (y_pos > -4.9f && !toUp) {
             y_pos -= deltay;
         }
         else {
